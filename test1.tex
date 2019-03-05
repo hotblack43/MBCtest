@@ -1,0 +1,447 @@
+\documentclass[]{article}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+\fi
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+% use microtype if available
+\IfFileExists{microtype.sty}{%
+\usepackage{microtype}
+\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\usepackage[margin=1in]{geometry}
+\usepackage{hyperref}
+\hypersetup{unicode=true,
+            pdftitle={test1},
+            pdfauthor={Peter Thejll},
+            pdfborder={0 0 0},
+            breaklinks=true}
+\urlstyle{same}  % don't use monospace font for urls
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{graphicx,grffile}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+\IfFileExists{parskip.sty}{%
+\usepackage{parskip}
+}{% else
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{0}
+% Redefines (sub)paragraphs to behave more like sections
+\ifx\paragraph\undefined\else
+\let\oldparagraph\paragraph
+\renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+\let\oldsubparagraph\subparagraph
+\renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+
+%%% Use protect on footnotes to avoid problems with footnotes in titles
+\let\rmarkdownfootnote\footnote%
+\def\footnote{\protect\rmarkdownfootnote}
+
+%%% Change title format to be more compact
+\usepackage{titling}
+
+% Create subtitle command for use in maketitle
+\newcommand{\subtitle}[1]{
+  \posttitle{
+    \begin{center}\large#1\end{center}
+    }
+}
+
+\setlength{\droptitle}{-2em}
+
+  \title{test1}
+    \pretitle{\vspace{\droptitle}\centering\huge}
+  \posttitle{\par}
+    \author{Peter Thejll}
+    \preauthor{\centering\large\emph}
+  \postauthor{\par}
+      \predate{\centering\large\emph}
+  \postdate{\par}
+    \date{05/03/2019}
+
+
+\begin{document}
+\maketitle
+
+\hypertarget{r-markdown}{%
+\subsection{R Markdown}\label{r-markdown}}
+
+Testing of Cannon's package MBC - straight from the manual
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{## Not run: Example from MBC manual}
+\KeywordTok{data}\NormalTok{(cccma)}
+\KeywordTok{set.seed}\NormalTok{(}\DecValTok{1}\NormalTok{) }\CommentTok{# Univariate quantile mapping}
+\NormalTok{qdm.c <-}\StringTok{ }\NormalTok{cccma}\OperatorTok{$}\NormalTok{gcm.c }\OperatorTok{*}\StringTok{ }\DecValTok{0}
+\NormalTok{qdm.p <-}\StringTok{ }\NormalTok{cccma}\OperatorTok{$}\NormalTok{gcm.p }\OperatorTok{*}\StringTok{ }\DecValTok{0}
+\ControlFlowTok{for}\NormalTok{ (i }\ControlFlowTok{in} \KeywordTok{seq}\NormalTok{(}\KeywordTok{ncol}\NormalTok{(cccma}\OperatorTok{$}\NormalTok{gcm.c))) \{}
+\NormalTok{  fit.qdm <-}
+\StringTok{    }\KeywordTok{QDM}\NormalTok{(}
+      \DataTypeTok{o.c =}\NormalTok{ cccma}\OperatorTok{$}\NormalTok{rcm.c[, i],}
+      \DataTypeTok{m.c =}\NormalTok{ cccma}\OperatorTok{$}\NormalTok{gcm.c[, i],}
+      \DataTypeTok{m.p =}\NormalTok{ cccma}\OperatorTok{$}\NormalTok{gcm.p[, i],}
+      \DataTypeTok{ratio =}\NormalTok{ cccma}\OperatorTok{$}\NormalTok{ratio.seq[i],}
+      \DataTypeTok{trace =}\NormalTok{ cccma}\OperatorTok{$}\NormalTok{trace[i]}
+\NormalTok{    )}
+\NormalTok{  qdm.c[, i] <-}\StringTok{ }\NormalTok{fit.qdm}\OperatorTok{$}\NormalTok{mhat.c}
+\NormalTok{  qdm.p[, i] <-}\StringTok{ }\NormalTok{fit.qdm}\OperatorTok{$}\NormalTok{mhat.p}
+\NormalTok{\}}
+\CommentTok{# Multivariate MBCp bias correction}
+\NormalTok{fit.mbcp <-}
+\StringTok{  }\KeywordTok{MBCp}\NormalTok{(}
+    \DataTypeTok{o.c =}\NormalTok{ cccma}\OperatorTok{$}\NormalTok{rcm.c,}
+    \DataTypeTok{m.c =}\NormalTok{ cccma}\OperatorTok{$}\NormalTok{gcm.c,}
+    \DataTypeTok{m.p =}\NormalTok{ cccma}\OperatorTok{$}\NormalTok{gcm.p,}
+    \DataTypeTok{ratio.seq =}\NormalTok{ cccma}\OperatorTok{$}\NormalTok{ratio.seq,}
+    \DataTypeTok{trace =}\NormalTok{ cccma}\OperatorTok{$}\NormalTok{trace}
+\NormalTok{  )}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 1 0.1362384 2 0.01048991 3 0.001605281 4 0.0004467989 5 0.0001816461 6 9.473764e-05
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{mbcp.c <-}\StringTok{ }\NormalTok{fit.mbcp}\OperatorTok{$}\NormalTok{mhat.c}
+\NormalTok{mbcp.p <-}\StringTok{ }\NormalTok{fit.mbcp}\OperatorTok{$}\NormalTok{mhat.p}
+\CommentTok{# Multivariate MBCr bias correction}
+\NormalTok{fit.mbcr <-}
+\StringTok{  }\KeywordTok{MBCr}\NormalTok{(}
+    \DataTypeTok{o.c =}\NormalTok{ cccma}\OperatorTok{$}\NormalTok{rcm.c,}
+    \DataTypeTok{m.c =}\NormalTok{ cccma}\OperatorTok{$}\NormalTok{gcm.c,}
+    \DataTypeTok{m.p =}\NormalTok{ cccma}\OperatorTok{$}\NormalTok{gcm.p,}
+    \DataTypeTok{ratio.seq =}\NormalTok{ cccma}\OperatorTok{$}\NormalTok{ratio.seq,}
+    \DataTypeTok{trace =}\NormalTok{ cccma}\OperatorTok{$}\NormalTok{trace}
+\NormalTok{  )}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 1 0.1261986 0.1727507 2 0.1353311 0.01811302 3 0.20371 0.002430912 4 0.4616438 0.0003616098 5 0.8442922 5.318191e-05
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{mbcr.c <-}\StringTok{ }\NormalTok{fit.mbcr}\OperatorTok{$}\NormalTok{mhat.c}
+\NormalTok{mbcr.p <-}\StringTok{ }\NormalTok{fit.mbcr}\OperatorTok{$}\NormalTok{mhat.p}
+\CommentTok{# Multivariate MBCn bias correction}
+\NormalTok{fit.mbcn <-}
+\StringTok{  }\KeywordTok{MBCn}\NormalTok{(}
+    \DataTypeTok{o.c =}\NormalTok{ cccma}\OperatorTok{$}\NormalTok{rcm.c,}
+    \DataTypeTok{m.c =}\NormalTok{ cccma}\OperatorTok{$}\NormalTok{gcm.c,}
+    \DataTypeTok{m.p =}\NormalTok{ cccma}\OperatorTok{$}\NormalTok{gcm.p,}
+    \DataTypeTok{ratio.seq =}\NormalTok{ cccma}\OperatorTok{$}\NormalTok{ratio.seq,}
+    \DataTypeTok{trace =}\NormalTok{ cccma}\OperatorTok{$}\NormalTok{trace}
+\NormalTok{  )}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{mbcn.c <-}\StringTok{ }\NormalTok{fit.mbcn}\OperatorTok{$}\NormalTok{mhat.c}
+\NormalTok{mbcn.p <-}\StringTok{ }\NormalTok{fit.mbcn}\OperatorTok{$}\NormalTok{mhat.p}
+\KeywordTok{colnames}\NormalTok{(mbcn.c) <-}\StringTok{ }\KeywordTok{colnames}\NormalTok{(mbcn.p) <-}\StringTok{ }\KeywordTok{colnames}\NormalTok{(cccma}\OperatorTok{$}\NormalTok{rcm.c)}
+\CommentTok{# Correlation matrices (Pearson and Spearman)}
+\CommentTok{# MBCp}
+\KeywordTok{dev.new}\NormalTok{()}
+\KeywordTok{par}\NormalTok{(}\DataTypeTok{mfrow =} \KeywordTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{, }\DecValTok{2}\NormalTok{))}
+\KeywordTok{plot}\NormalTok{(}
+  \KeywordTok{c}\NormalTok{(}\KeywordTok{cor}\NormalTok{(cccma}\OperatorTok{$}\NormalTok{rcm.c)),}
+  \KeywordTok{c}\NormalTok{(}\KeywordTok{cor}\NormalTok{(qdm.c)),}
+  \DataTypeTok{col =} \StringTok{'black'}\NormalTok{ ,}
+  \DataTypeTok{pch =} \DecValTok{19}\NormalTok{,}
+  \DataTypeTok{xlim =} \KeywordTok{c}\NormalTok{(}\OperatorTok{-}\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{),}
+  \DataTypeTok{ylim =} \KeywordTok{c}\NormalTok{(}\OperatorTok{-}\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{),}
+  \DataTypeTok{xlab =} \StringTok{'CanRCM4'}\NormalTok{,}
+  \DataTypeTok{ylab =} \StringTok{'CanESM2 MBCp'}\NormalTok{ ,}
+  \DataTypeTok{main =} \StringTok{'Pearson correlation}\CharTok{\textbackslash{}n}\StringTok{MBCp calibration'}
+\NormalTok{)}
+\KeywordTok{abline}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{)}
+\KeywordTok{grid}\NormalTok{()}
+\KeywordTok{points}\NormalTok{(}\KeywordTok{c}\NormalTok{(}\KeywordTok{cor}\NormalTok{(cccma}\OperatorTok{$}\NormalTok{rcm.c)), }\KeywordTok{c}\NormalTok{(}\KeywordTok{cor}\NormalTok{(mbcp.c)), }\DataTypeTok{col =} \StringTok{'red'}\NormalTok{)}
+\KeywordTok{plot}\NormalTok{(}
+  \KeywordTok{c}\NormalTok{(}\KeywordTok{cor}\NormalTok{(cccma}\OperatorTok{$}\NormalTok{rcm.p)),}
+  \KeywordTok{c}\NormalTok{(}\KeywordTok{cor}\NormalTok{(qdm.p)),}
+  \DataTypeTok{col =} \StringTok{'black'}\NormalTok{ ,}
+  \DataTypeTok{pch =} \DecValTok{19}\NormalTok{,}
+  \DataTypeTok{xlim =} \KeywordTok{c}\NormalTok{(}\OperatorTok{-}\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{),}
+  \DataTypeTok{ylim =} \KeywordTok{c}\NormalTok{(}\OperatorTok{-}\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{),}
+  \DataTypeTok{xlab =} \StringTok{'CanRCM4'}\NormalTok{,}
+  \DataTypeTok{ylab =} \StringTok{'CanESM2 MBCp'}\NormalTok{ ,}
+  \DataTypeTok{main =} \StringTok{'Pearson correlation}\CharTok{\textbackslash{}n}\StringTok{MBCp evaluation'}
+\NormalTok{)}
+\KeywordTok{abline}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{)}
+\KeywordTok{grid}\NormalTok{()}
+\KeywordTok{points}\NormalTok{(}\KeywordTok{c}\NormalTok{(}\KeywordTok{cor}\NormalTok{(cccma}\OperatorTok{$}\NormalTok{rcm.p)), }\KeywordTok{c}\NormalTok{(}\KeywordTok{cor}\NormalTok{(mbcp.p)), }\DataTypeTok{col =} \StringTok{'red'}\NormalTok{)}
+\KeywordTok{plot}\NormalTok{(}
+  \KeywordTok{c}\NormalTok{(}\KeywordTok{cor}\NormalTok{(cccma}\OperatorTok{$}\NormalTok{rcm.c, }\DataTypeTok{m =} \StringTok{'s'}\NormalTok{)),}
+  \KeywordTok{c}\NormalTok{(}\KeywordTok{cor}\NormalTok{(qdm.c, }\DataTypeTok{m =} \StringTok{'s'}\NormalTok{)),}
+  \DataTypeTok{col =} \StringTok{'black'}\NormalTok{ ,}
+  \DataTypeTok{pch =} \DecValTok{19}\NormalTok{,}
+  \DataTypeTok{xlim =} \KeywordTok{c}\NormalTok{(}\OperatorTok{-}\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{),}
+  \DataTypeTok{ylim =} \KeywordTok{c}\NormalTok{(}\OperatorTok{-}\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{),}
+  \DataTypeTok{xlab =} \StringTok{'CanRCM4'}\NormalTok{,}
+  \DataTypeTok{ylab =} \StringTok{'CanESM2 MBCp'}\NormalTok{ ,}
+  \DataTypeTok{main =} \StringTok{'Spearman correlation}\CharTok{\textbackslash{}n}\StringTok{MBCp calibration'}
+\NormalTok{)}
+\KeywordTok{abline}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{)}
+\KeywordTok{grid}\NormalTok{()}
+\KeywordTok{points}\NormalTok{(}\KeywordTok{c}\NormalTok{(}\KeywordTok{cor}\NormalTok{(cccma}\OperatorTok{$}\NormalTok{rcm.c, }\DataTypeTok{m =} \StringTok{'s'}\NormalTok{)), }\KeywordTok{c}\NormalTok{(}\KeywordTok{cor}\NormalTok{(mbcp.c, }\DataTypeTok{m =} \StringTok{'s'}\NormalTok{)), }\DataTypeTok{col =} \StringTok{'red'}\NormalTok{)}
+\KeywordTok{plot}\NormalTok{(}
+  \KeywordTok{c}\NormalTok{(}\KeywordTok{cor}\NormalTok{(cccma}\OperatorTok{$}\NormalTok{rcm.p, }\DataTypeTok{m =} \StringTok{'s'}\NormalTok{)),}
+  \KeywordTok{c}\NormalTok{(}\KeywordTok{cor}\NormalTok{(qdm.p, }\DataTypeTok{m =} \StringTok{'s'}\NormalTok{)),}
+  \DataTypeTok{col =} \StringTok{'black'}\NormalTok{ ,}
+  \DataTypeTok{pch =} \DecValTok{19}\NormalTok{,}
+  \DataTypeTok{xlim =} \KeywordTok{c}\NormalTok{(}\OperatorTok{-}\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{),}
+  \DataTypeTok{ylim =} \KeywordTok{c}\NormalTok{(}\OperatorTok{-}\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{),}
+  \DataTypeTok{xlab =} \StringTok{'CanRCM4'}\NormalTok{,}
+  \DataTypeTok{ylab =} \StringTok{'CanESM2 MBCp'}\NormalTok{ ,}
+  \DataTypeTok{main =} \StringTok{'Spearman correlation}\CharTok{\textbackslash{}n}\StringTok{MBCp evaluation'}
+\NormalTok{)}
+\KeywordTok{abline}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{)}
+\KeywordTok{grid}\NormalTok{()}
+\KeywordTok{points}\NormalTok{(}\KeywordTok{c}\NormalTok{(}\KeywordTok{cor}\NormalTok{(cccma}\OperatorTok{$}\NormalTok{rcm.p, }\DataTypeTok{m =} \StringTok{'s'}\NormalTok{)), }\KeywordTok{c}\NormalTok{(}\KeywordTok{cor}\NormalTok{(mbcp.p, }\DataTypeTok{m =} \StringTok{'s'}\NormalTok{)), }\DataTypeTok{col =} \StringTok{'red'}\NormalTok{)}
+\CommentTok{# MBCr}
+\KeywordTok{dev.new}\NormalTok{()}
+\KeywordTok{par}\NormalTok{(}\DataTypeTok{mfrow =} \KeywordTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{, }\DecValTok{2}\NormalTok{))}
+\KeywordTok{plot}\NormalTok{(}
+  \KeywordTok{c}\NormalTok{(}\KeywordTok{cor}\NormalTok{(cccma}\OperatorTok{$}\NormalTok{rcm.c)),}
+  \KeywordTok{c}\NormalTok{(}\KeywordTok{cor}\NormalTok{(qdm.c)),}
+  \DataTypeTok{col =} \StringTok{'black'}\NormalTok{ ,}
+  \DataTypeTok{pch =} \DecValTok{19}\NormalTok{,}
+  \DataTypeTok{xlim =} \KeywordTok{c}\NormalTok{(}\OperatorTok{-}\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{),}
+  \DataTypeTok{ylim =} \KeywordTok{c}\NormalTok{(}\OperatorTok{-}\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{),}
+  \DataTypeTok{xlab =} \StringTok{'CanRCM4'}\NormalTok{,}
+  \DataTypeTok{ylab =} \StringTok{'CanESM2 MBCr'}\NormalTok{ ,}
+  \DataTypeTok{main =} \StringTok{'Pearson correlation}\CharTok{\textbackslash{}n}\StringTok{MBCr calibration'}
+\NormalTok{)}
+\KeywordTok{abline}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{)}
+\KeywordTok{grid}\NormalTok{()}
+\KeywordTok{points}\NormalTok{(}\KeywordTok{c}\NormalTok{(}\KeywordTok{cor}\NormalTok{(cccma}\OperatorTok{$}\NormalTok{rcm.c)), }\KeywordTok{c}\NormalTok{(}\KeywordTok{cor}\NormalTok{(mbcr.c)), }\DataTypeTok{col =} \StringTok{'blue'}\NormalTok{)}
+\KeywordTok{plot}\NormalTok{(}
+  \KeywordTok{c}\NormalTok{(}\KeywordTok{cor}\NormalTok{(cccma}\OperatorTok{$}\NormalTok{rcm.p)),}
+  \KeywordTok{c}\NormalTok{(}\KeywordTok{cor}\NormalTok{(qdm.p)),}
+  \DataTypeTok{col =} \StringTok{'black'}\NormalTok{ ,}
+  \DataTypeTok{pch =} \DecValTok{19}\NormalTok{,}
+  \DataTypeTok{xlim =} \KeywordTok{c}\NormalTok{(}\OperatorTok{-}\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{),}
+  \DataTypeTok{ylim =} \KeywordTok{c}\NormalTok{(}\OperatorTok{-}\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{),}
+  \DataTypeTok{xlab =} \StringTok{'CanRCM4'}\NormalTok{,}
+  \DataTypeTok{ylab =} \StringTok{'CanESM2 MBCr'}\NormalTok{ ,}
+  \DataTypeTok{main =} \StringTok{'Pearson correlation}\CharTok{\textbackslash{}n}\StringTok{MBCr evaluation'}
+\NormalTok{)}
+\KeywordTok{abline}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{)}
+\KeywordTok{grid}\NormalTok{()}
+\KeywordTok{points}\NormalTok{(}\KeywordTok{c}\NormalTok{(}\KeywordTok{cor}\NormalTok{(cccma}\OperatorTok{$}\NormalTok{rcm.p)), }\KeywordTok{c}\NormalTok{(}\KeywordTok{cor}\NormalTok{(mbcr.p)), }\DataTypeTok{col =} \StringTok{'blue'}\NormalTok{)}
+\KeywordTok{plot}\NormalTok{(}
+  \KeywordTok{c}\NormalTok{(}\KeywordTok{cor}\NormalTok{(cccma}\OperatorTok{$}\NormalTok{rcm.c, }\DataTypeTok{m =} \StringTok{'s'}\NormalTok{)),}
+  \KeywordTok{c}\NormalTok{(}\KeywordTok{cor}\NormalTok{(qdm.c, }\DataTypeTok{m =} \StringTok{'s'}\NormalTok{)),}
+  \DataTypeTok{col =} \StringTok{'black'}\NormalTok{ ,}
+  \DataTypeTok{pch =} \DecValTok{19}\NormalTok{,}
+  \DataTypeTok{xlim =} \KeywordTok{c}\NormalTok{(}\OperatorTok{-}\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{),}
+  \DataTypeTok{ylim =} \KeywordTok{c}\NormalTok{(}\OperatorTok{-}\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{),}
+  \DataTypeTok{xlab =} \StringTok{'CanRCM4'}\NormalTok{,}
+  \DataTypeTok{ylab =} \StringTok{'CanESM2 MBCr'}\NormalTok{ ,}
+  \DataTypeTok{main =} \StringTok{'Spearman correlation}\CharTok{\textbackslash{}n}\StringTok{MBCr calibration'}
+\NormalTok{)}
+\KeywordTok{abline}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{)}
+\KeywordTok{grid}\NormalTok{()}
+\KeywordTok{points}\NormalTok{(}\KeywordTok{c}\NormalTok{(}\KeywordTok{cor}\NormalTok{(cccma}\OperatorTok{$}\NormalTok{rcm.c, }\DataTypeTok{m =} \StringTok{'s'}\NormalTok{)), }\KeywordTok{c}\NormalTok{(}\KeywordTok{cor}\NormalTok{(mbcr.c, }\DataTypeTok{m =} \StringTok{'s'}\NormalTok{)), }\DataTypeTok{col =} \StringTok{'blue'}\NormalTok{)}
+\KeywordTok{plot}\NormalTok{(}
+  \KeywordTok{c}\NormalTok{(}\KeywordTok{cor}\NormalTok{(cccma}\OperatorTok{$}\NormalTok{rcm.p, }\DataTypeTok{m =} \StringTok{'s'}\NormalTok{)),}
+  \KeywordTok{c}\NormalTok{(}\KeywordTok{cor}\NormalTok{(qdm.p, }\DataTypeTok{m =} \StringTok{'s'}\NormalTok{)),}
+  \DataTypeTok{col =} \StringTok{'black'}\NormalTok{,}
+  \DataTypeTok{pch =} \DecValTok{19}\NormalTok{,}
+  \DataTypeTok{xlim =} \KeywordTok{c}\NormalTok{(}\OperatorTok{-}\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{),}
+  \DataTypeTok{ylim =} \KeywordTok{c}\NormalTok{(}\OperatorTok{-}\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{),}
+  \DataTypeTok{xlab =} \StringTok{'CanRCM4'}\NormalTok{,}
+  \DataTypeTok{ylab =} \StringTok{'CanESM2 MBCr'}\NormalTok{ ,}
+  \DataTypeTok{main =} \StringTok{'Spearman correlation}\CharTok{\textbackslash{}n}\StringTok{MBCr evaluation'}
+\NormalTok{)}
+\KeywordTok{abline}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{)}
+\KeywordTok{grid}\NormalTok{()}
+\KeywordTok{points}\NormalTok{(}\KeywordTok{c}\NormalTok{(}\KeywordTok{cor}\NormalTok{(cccma}\OperatorTok{$}\NormalTok{rcm.p, }\DataTypeTok{m =} \StringTok{'s'}\NormalTok{)), }\KeywordTok{c}\NormalTok{(}\KeywordTok{cor}\NormalTok{(mbcr.p, }\DataTypeTok{m =} \StringTok{'s'}\NormalTok{)), }\DataTypeTok{col =} \StringTok{'blue'}\NormalTok{)}
+\CommentTok{# MBCn}
+\KeywordTok{dev.new}\NormalTok{()}
+\KeywordTok{par}\NormalTok{(}\DataTypeTok{mfrow =} \KeywordTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{, }\DecValTok{2}\NormalTok{))}
+\KeywordTok{plot}\NormalTok{(}
+  \KeywordTok{c}\NormalTok{(}\KeywordTok{cor}\NormalTok{(cccma}\OperatorTok{$}\NormalTok{rcm.c)),}
+  \KeywordTok{c}\NormalTok{(}\KeywordTok{cor}\NormalTok{(qdm.c)),}
+  \DataTypeTok{col =} \StringTok{'black'}\NormalTok{ ,}
+  \DataTypeTok{pch =} \DecValTok{19}\NormalTok{,}
+  \DataTypeTok{xlim =} \KeywordTok{c}\NormalTok{(}\OperatorTok{-}\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{),}
+  \DataTypeTok{ylim =} \KeywordTok{c}\NormalTok{(}\OperatorTok{-}\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{),}
+  \DataTypeTok{xlab =} \StringTok{'CanRCM4'}\NormalTok{,}
+  \DataTypeTok{ylab =} \StringTok{'CanESM2 MBCn'}\NormalTok{ ,}
+  \DataTypeTok{main =} \StringTok{'Pearson correlation}\CharTok{\textbackslash{}n}\StringTok{MBCn calibration'}
+\NormalTok{)}
+\KeywordTok{abline}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{)}
+\KeywordTok{grid}\NormalTok{()}
+\KeywordTok{points}\NormalTok{(}\KeywordTok{c}\NormalTok{(}\KeywordTok{cor}\NormalTok{(cccma}\OperatorTok{$}\NormalTok{rcm.c)), }\KeywordTok{c}\NormalTok{(}\KeywordTok{cor}\NormalTok{(mbcn.c)), }\DataTypeTok{col =} \StringTok{'orange'}\NormalTok{)}
+\KeywordTok{plot}\NormalTok{(}
+  \KeywordTok{c}\NormalTok{(}\KeywordTok{cor}\NormalTok{(cccma}\OperatorTok{$}\NormalTok{rcm.p)),}
+  \KeywordTok{c}\NormalTok{(}\KeywordTok{cor}\NormalTok{(qdm.p)),}
+  \DataTypeTok{col =} \StringTok{'black'}\NormalTok{ ,}
+  \DataTypeTok{pch =} \DecValTok{19}\NormalTok{,}
+  \DataTypeTok{xlim =} \KeywordTok{c}\NormalTok{(}\OperatorTok{-}\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{),}
+  \DataTypeTok{ylim =} \KeywordTok{c}\NormalTok{(}\OperatorTok{-}\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{),}
+  \DataTypeTok{xlab =} \StringTok{'CanRCM4'}\NormalTok{,}
+  \DataTypeTok{ylab =} \StringTok{'CanESM2 MBCn'}\NormalTok{ ,}
+  \DataTypeTok{main =} \StringTok{'Pearson correlation}\CharTok{\textbackslash{}n}\StringTok{MBCn evaluation'}
+\NormalTok{)}
+\KeywordTok{abline}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{)}
+\KeywordTok{grid}\NormalTok{()}
+\KeywordTok{points}\NormalTok{(}\KeywordTok{c}\NormalTok{(}\KeywordTok{cor}\NormalTok{(cccma}\OperatorTok{$}\NormalTok{rcm.p)), }\KeywordTok{c}\NormalTok{(}\KeywordTok{cor}\NormalTok{(mbcn.p)), }\DataTypeTok{col =} \StringTok{'orange'}\NormalTok{)}
+\KeywordTok{plot}\NormalTok{(}
+  \KeywordTok{c}\NormalTok{(}\KeywordTok{cor}\NormalTok{(cccma}\OperatorTok{$}\NormalTok{rcm.c, }\DataTypeTok{m =} \StringTok{'s'}\NormalTok{)),}
+  \KeywordTok{c}\NormalTok{(}\KeywordTok{cor}\NormalTok{(qdm.c, }\DataTypeTok{m =} \StringTok{'s'}\NormalTok{)),}
+  \DataTypeTok{col =} \StringTok{'black'}\NormalTok{ ,}
+  \DataTypeTok{pch =} \DecValTok{19}\NormalTok{,}
+  \DataTypeTok{xlim =} \KeywordTok{c}\NormalTok{(}\OperatorTok{-}\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{),}
+  \DataTypeTok{ylim =} \KeywordTok{c}\NormalTok{(}\OperatorTok{-}\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{),}
+  \DataTypeTok{xlab =} \StringTok{'CanRCM4'}\NormalTok{,}
+  \DataTypeTok{ylab =} \StringTok{'CanESM2 MBCn'}\NormalTok{ ,}
+  \DataTypeTok{main =} \StringTok{'Spearman correlation}\CharTok{\textbackslash{}n}\StringTok{MBCn calibration'}
+\NormalTok{)}
+\KeywordTok{abline}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{)}
+\KeywordTok{grid}\NormalTok{()}
+\KeywordTok{points}\NormalTok{(}\KeywordTok{c}\NormalTok{(}\KeywordTok{cor}\NormalTok{(cccma}\OperatorTok{$}\NormalTok{rcm.c, }\DataTypeTok{m =} \StringTok{'s'}\NormalTok{)), }\KeywordTok{c}\NormalTok{(}\KeywordTok{cor}\NormalTok{(mbcn.c, }\DataTypeTok{m =} \StringTok{'s'}\NormalTok{)), }\DataTypeTok{col =} \StringTok{'orange'}\NormalTok{)}
+\KeywordTok{plot}\NormalTok{(}
+  \KeywordTok{c}\NormalTok{(}\KeywordTok{cor}\NormalTok{(cccma}\OperatorTok{$}\NormalTok{rcm.p, }\DataTypeTok{m =} \StringTok{'s'}\NormalTok{)),}
+  \KeywordTok{c}\NormalTok{(}\KeywordTok{cor}\NormalTok{(qdm.p, }\DataTypeTok{m =} \StringTok{'s'}\NormalTok{)),}
+  \DataTypeTok{col =} \StringTok{'black'}\NormalTok{ ,}
+  \DataTypeTok{pch =} \DecValTok{19}\NormalTok{,}
+  \DataTypeTok{xlim =} \KeywordTok{c}\NormalTok{(}\OperatorTok{-}\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{),}
+  \DataTypeTok{ylim =} \KeywordTok{c}\NormalTok{(}\OperatorTok{-}\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{),}
+  \DataTypeTok{xlab =} \StringTok{'CanRCM4'}\NormalTok{,}
+  \DataTypeTok{ylab =} \StringTok{'CanESM2 MBCn'}\NormalTok{ ,}
+  \DataTypeTok{main =} \StringTok{'Spearman correlation}\CharTok{\textbackslash{}n}\StringTok{MBCn evaluation'}
+\NormalTok{)}
+\KeywordTok{abline}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{)}
+\KeywordTok{grid}\NormalTok{()}
+\KeywordTok{points}\NormalTok{(}\KeywordTok{c}\NormalTok{(}\KeywordTok{cor}\NormalTok{(cccma}\OperatorTok{$}\NormalTok{rcm.p, }\DataTypeTok{m =} \StringTok{'s'}\NormalTok{)), }\KeywordTok{c}\NormalTok{(}\KeywordTok{cor}\NormalTok{(mbcn.p, }\DataTypeTok{m =} \StringTok{'s'}\NormalTok{)), }\DataTypeTok{col =} \StringTok{'orange'}\NormalTok{) }\CommentTok{# Pairwise scatterplots}
+\KeywordTok{dev.new}\NormalTok{()}
+\KeywordTok{pairs}\NormalTok{(cccma}\OperatorTok{$}\NormalTok{gcm.c, }\DataTypeTok{main =} \StringTok{'CanESM2 calibration'}\NormalTok{, }\DataTypeTok{col =} \StringTok{'#0000001A'}\NormalTok{)}
+\KeywordTok{dev.new}\NormalTok{()}
+\KeywordTok{pairs}\NormalTok{(cccma}\OperatorTok{$}\NormalTok{rcm.c, }\DataTypeTok{main =} \StringTok{'CanRCM4 calibration'}\NormalTok{, }\DataTypeTok{col =} \StringTok{'#0000001A'}\NormalTok{)}
+\KeywordTok{dev.new}\NormalTok{()}
+\KeywordTok{pairs}\NormalTok{(qdm.c, }\DataTypeTok{main =} \StringTok{'QDM calibration'}\NormalTok{, }\DataTypeTok{col =} \StringTok{'#0000001A'}\NormalTok{)}
+\KeywordTok{dev.new}\NormalTok{()}
+\KeywordTok{pairs}\NormalTok{(mbcp.c, }\DataTypeTok{main =} \StringTok{'MBCp calibration'}\NormalTok{, }\DataTypeTok{col =} \StringTok{'#FF00001A'}\NormalTok{)}
+\KeywordTok{dev.new}\NormalTok{()}
+\KeywordTok{pairs}\NormalTok{(mbcr.c, }\DataTypeTok{main =} \StringTok{'MBCr calibration'}\NormalTok{, }\DataTypeTok{col =} \StringTok{'#0000FF1A'}\NormalTok{)}
+\KeywordTok{dev.new}\NormalTok{()}
+
+\KeywordTok{pairs}\NormalTok{(mbcn.c, }\DataTypeTok{main =} \StringTok{'MBCn calibration'}\NormalTok{, }\DataTypeTok{col =} \StringTok{'#FFA5001A'}\NormalTok{)}
+\CommentTok{# Energy distance skill score relative to univariate}
+\NormalTok{escore.qdm <-}\StringTok{ }\KeywordTok{escore}\NormalTok{(cccma}\OperatorTok{$}\NormalTok{rcm.p, qdm.p, }\DataTypeTok{scale.x =} \OtherTok{TRUE}\NormalTok{)}
+\NormalTok{escore.mbcp <-}\StringTok{ }\KeywordTok{escore}\NormalTok{(cccma}\OperatorTok{$}\NormalTok{rcm.p, mbcp.p, }\DataTypeTok{scale.x =} \OtherTok{TRUE}\NormalTok{)}
+\NormalTok{escore.mbcr <-}\StringTok{ }\KeywordTok{escore}\NormalTok{(cccma}\OperatorTok{$}\NormalTok{rcm.p, mbcr.p, }\DataTypeTok{scale.x =} \OtherTok{TRUE}\NormalTok{)}
+\NormalTok{escore.mbcn <-}\StringTok{ }\KeywordTok{escore}\NormalTok{(cccma}\OperatorTok{$}\NormalTok{rcm.p, mbcn.p, }\DataTypeTok{scale.x =} \OtherTok{TRUE}\NormalTok{)}
+\KeywordTok{cat}\NormalTok{(}\StringTok{'ESS (MBCp):'}\NormalTok{, }\DecValTok{1} \OperatorTok{-}\StringTok{ }\NormalTok{escore.mbcp }\OperatorTok{/}\StringTok{ }\NormalTok{escore.qdm, }\StringTok{'}\CharTok{\textbackslash{}n}\StringTok{'}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## ESS (MBCp): 0.7718066
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{cat}\NormalTok{(}\StringTok{'ESS (MBCr):'}\NormalTok{, }\DecValTok{1} \OperatorTok{-}\StringTok{ }\NormalTok{escore.mbcr }\OperatorTok{/}\StringTok{ }\NormalTok{escore.qdm, }\StringTok{'}\CharTok{\textbackslash{}n}\StringTok{'}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## ESS (MBCr): 0.7024248
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{cat}\NormalTok{(}\StringTok{'ESS (MBCn):'}\NormalTok{, }\DecValTok{1} \OperatorTok{-}\StringTok{ }\NormalTok{escore.mbcn }\OperatorTok{/}\StringTok{ }\NormalTok{escore.qdm, }\StringTok{'}\CharTok{\textbackslash{}n}\StringTok{'}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## ESS (MBCn): 0.9309846
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{## End(Not run)}
+\end{Highlighting}
+\end{Shaded}
+
+
+\end{document}
